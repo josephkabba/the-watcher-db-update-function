@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 * * 1 * *"
+    }
+  ],
+  "scriptFile": "../dist/the-watcher-db-update-function/index.js"
+}
