@@ -17,9 +17,9 @@ const execute = async (country: "UG" | "US", database: DataSource) => {
   }
 };
 
-export const update = async () => {
+export const updateDB = async () => {
+  const database = await getDatabase();
   try {
-    const database = await getDatabase();
     await database
       .getRepository(ArticleModel)
       .createQueryBuilder("article")
@@ -27,23 +27,11 @@ export const update = async () => {
       .from(ArticleModel)
       .execute();
 
-    let count = await database
-      .getRepository(ArticleModel)
-      .createQueryBuilder("article")
-      .getCount();
-
-    console.log(count);
     await execute("UG", database);
     await execute("US", database);
-
-    count = await database
-      .getRepository(ArticleModel)
-      .createQueryBuilder("article")
-      .getCount();
-    await database.destroy();
-    console.log(count);
-    console.log("task complete");
   } catch (err: any) {
     console.log(err);
+  } finally {
+    database.destroy();
   }
-}
+};

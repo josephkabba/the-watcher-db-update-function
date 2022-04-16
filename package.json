@@ -5,15 +5,16 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "prestart": "npm run build",
+    "prestart": "yarn run build",
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "sharp": "^0.30.3",
-    "typeorm": "^0.3.5",
     "axios": "^0.26.1",
-    "moment": "^2.29.2"
+    "moment": "^2.29.2",
+    "pg": "^8.7.3",
+    "sharp": "^0.30.3",
+    "typeorm": "^0.3.5"
   },
   "devDependencies": {
     "@azure/functions": "^3.0.0",
