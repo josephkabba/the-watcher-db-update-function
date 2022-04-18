@@ -13,7 +13,11 @@ const timerTrigger: AzureFunction = async function (
 
   context.log("Database update started", timeStamp);
 
-  await updateDB();
+  try {
+    await updateDB();
+  } catch (error: any) {
+    context.log(`${error}`, timeStamp);
+  }
 
   context.log("Database update complete", timeStamp);
 };
