@@ -6,8 +6,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "prestart": "yarn run build",
-    "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "start": "func start"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -18,6 +17,9 @@
   },
   "devDependencies": {
     "@azure/functions": "^3.0.0",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
     "typescript": "^4.0.0"
   }
 }

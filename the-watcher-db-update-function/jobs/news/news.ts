@@ -8,9 +8,8 @@ export const getNews = async (
 ): Promise<RemoteArticle[]> => {
   const options: AxiosRequestConfig = {
     method: "GET",
-    url: "https://api.newscatcherapi.com/v2/search",
+    url: "https://api.newscatcherapi.com/v2/latest_headlines",
     params: {
-      q: "current news",
       lang: "en",
       page: "1",
       countries: country,

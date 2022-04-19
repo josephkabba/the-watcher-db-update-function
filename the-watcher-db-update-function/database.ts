@@ -9,7 +9,7 @@ const AppDataSource = new DataSource({
   password: "PPLdatabase1234",
   database: "postgres",
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [ArticleModel],
   subscribers: [],
   migrations: [],
@@ -18,7 +18,6 @@ const AppDataSource = new DataSource({
 
 export const getDatabase = async () => {
   if (!AppDataSource.isInitialized) {
-    console.log("initializing database");
     await AppDataSource.initialize();
   }
   return AppDataSource;

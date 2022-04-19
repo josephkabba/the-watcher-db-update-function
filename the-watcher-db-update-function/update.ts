@@ -8,13 +8,6 @@ const execute = async (country: "UG" | "US", database: DataSource) => {
   const articles = await getNews(country);
 
   if (articles.length > 0) {
-    await database
-      .getRepository(ArticleModel)
-      .createQueryBuilder("article")
-      .delete()
-      .from(ArticleModel)
-      .execute();
-
     for (let i = 0; i < articles.length; i++) {
       const article =
         country === "US"
@@ -29,11 +22,18 @@ const execute = async (country: "UG" | "US", database: DataSource) => {
 export const updateDB = async () => {
   const database = await getDatabase();
   try {
+    await database
+      .getRepository(ArticleModel)
+      .createQueryBuilder("article")
+      .delete()
+      .from(ArticleModel)
+      .execute();
+
     await execute("UG", database);
     await execute("US", database);
   } catch (err: any) {
     throw new Error(err);
   } finally {
-    database.destroy();
+    await database.destroy();
   }
 };
