@@ -6,7 +6,6 @@ import { ArticleModel } from "./models/local/model";
 
 const execute = async (country: "UG" | "US", database: DataSource) => {
   const articles = await getNews(country);
-
   if (articles.length > 0) {
     for (let i = 0; i < articles.length; i++) {
       const article =
