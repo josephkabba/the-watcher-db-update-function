@@ -16,7 +16,7 @@ export const getNews = async (
       page_size: "25",
     },
     headers: {
-      "x-api-key": "sNUBIsQHbyhKDaaHaZTN-O1BhDSvWQUn_NWIJ3wnRYw",
+      "x-api-key": "9h70U7ombGZmDAZN6qO1cmjeyQqphbYZtwXFkLbPidE",
     },
   };
 
